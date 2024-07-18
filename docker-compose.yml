@@ -1,0 +1,10 @@
+services:
+  node:
+    build:
+      dockerfile: docker/node/Dockerfile
+    container_name: montisgal-events-app-node
+    ports:
+      - '4200:4200'
+      - '3000:3000'
+    volumes:
+      - '.:/app'
