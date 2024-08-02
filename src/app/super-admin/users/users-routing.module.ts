@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 
-import { IndexPageComponent } from './components/index-page/index-page.component';
-import { NewUserPageComponent } from './components/new-user-page/new-user-page.component';
+import { IndexPageComponent } from './pages/index-page/index-page.component';
+import { NewUserPageComponent } from './pages/new-user-page/new-user-page.component';
 
 const routes: Routes = [
   {

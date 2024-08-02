@@ -1,0 +1,12 @@
+<p-card header="{{ user.userName }}" subheader="{{ user.email }}" [style]="{ width: '360px' }">
+
+  <p-chip label="{{ user.rol | role }}" icon="{{ PrimeIcons.ID_CARD }}" />
+  <p-chip *ngIf="user.verified" class="ml-2" styleClass="text-green-800 bg-green-100" label="Verified" icon="{{ PrimeIcons.VERIFIED }}" />
+
+  <ng-template pTemplate="footer">
+    <div class="flex gap-3 mt-1">
+      <p-button label="Delete" (click)="deleteButtonClicked(user.id)" severity="secondary" class="w-full" styleClass="w-full" />
+      <p-button label="Save" class="w-full" styleClass="w-full" />
+    </div>
+  </ng-template>
+</p-card>
