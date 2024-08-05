@@ -1,0 +1,28 @@
+<form [formGroup]="createUserForm">
+  <p-inputGroup>
+    <p-inputGroupAddon>
+      <i class="pi pi-user"></i>
+    </p-inputGroupAddon>
+    <input pInputText placeholder="Username" formControlName="userName"/>
+  </p-inputGroup>
+  <p-inputGroup>
+    <p-inputGroupAddon>
+      <i class="pi pi-user"></i>
+    </p-inputGroupAddon>
+    <input pInputText placeholder="Email" formControlName="email"/>
+  </p-inputGroup>
+  <p-inputGroup>
+    <p-inputGroupAddon>
+      <i class="pi pi-user"></i>
+    </p-inputGroupAddon>
+    <input pInputText placeholder="Password" formControlName="password"/>
+  </p-inputGroup>
+  <p-inputGroup>
+    <p-inputGroupAddon>
+      <i class="pi pi-user"></i>
+    </p-inputGroupAddon>
+    <input pInputText placeholder="Rol" formControlName="rol"/>
+  </p-inputGroup>
+
+  <p-button label="Submit" (click)="createUser()"/>
+</form>

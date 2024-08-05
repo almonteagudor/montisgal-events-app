@@ -1,10 +1,8 @@
 import { Rol } from './rol.interface';
 
-export interface User {
-  id: string;
+export interface CreateUserCommand {
   userName: string;
   email: string;
-  verified: boolean;
-  imageName: string;
+  password: string;
   rol: Rol;
 }

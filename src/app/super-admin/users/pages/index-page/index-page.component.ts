@@ -10,8 +10,7 @@ import { UserService } from '../../services/user.service';
 export class IndexPageComponent implements OnInit {
   public users: User[] = [];
 
-  constructor(private usersService: UserService) {
-  }
+  constructor(private usersService: UserService) {}
 
   ngOnInit(): void {
     this.loadUsers();
