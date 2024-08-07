@@ -1,28 +1,48 @@
 <form [formGroup]="createUserForm">
-  <p-inputGroup>
-    <p-inputGroupAddon>
-      <i class="pi pi-user"></i>
-    </p-inputGroupAddon>
-    <input pInputText placeholder="Username" formControlName="userName"/>
-  </p-inputGroup>
-  <p-inputGroup>
-    <p-inputGroupAddon>
-      <i class="pi pi-user"></i>
-    </p-inputGroupAddon>
-    <input pInputText placeholder="Email" formControlName="email"/>
-  </p-inputGroup>
-  <p-inputGroup>
-    <p-inputGroupAddon>
-      <i class="pi pi-user"></i>
-    </p-inputGroupAddon>
-    <input pInputText placeholder="Password" formControlName="password"/>
-  </p-inputGroup>
-  <p-inputGroup>
-    <p-inputGroupAddon>
-      <i class="pi pi-user"></i>
-    </p-inputGroupAddon>
-    <input pInputText placeholder="Rol" formControlName="rol"/>
-  </p-inputGroup>
-
+  <div class="flex flex-column gap-2">
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="{{ PrimeIcons.USER }}"></i>
+      </p-inputGroupAddon>
+      <input id="userName" pInputText placeholder="Username" formControlName="userName"
+             [class]="errorUserName ? 'ng-invalid' : ''"/>
+    </p-inputGroup>
+    <small id="userName-help">
+      {{ errorUserName }}
+    </small>
+  </div>
+  <div class="flex flex-column gap-2 mt-2">
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="{{ PrimeIcons.ENVELOPE }}"></i>
+      </p-inputGroupAddon>
+      <input id="email" pInputText placeholder="Email" formControlName="email"/>
+    </p-inputGroup>
+    <small id="email-help">
+      {{ errorEmail }}
+    </small>
+  </div>
+  <div class="flex flex-column gap-2 mt-2">
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="{{ PrimeIcons.LOCK }}"></i>
+      </p-inputGroupAddon>
+      <input id="password" pInputText placeholder="Password" formControlName="password"/>
+    </p-inputGroup>
+    <small id="password-help">
+      {{ errorPassword }}
+    </small>
+  </div>
+  <div class="flex flex-column gap-2 mt-2">
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="{{ PrimeIcons.ID_CARD }}"></i>
+      </p-inputGroupAddon>
+      <input id="role" pInputText placeholder="Rol" formControlName="rol"/>
+    </p-inputGroup>
+    <small id="role-help">
+      {{ errorRole }}
+    </small>
+  </div>
   <p-button label="Submit" (click)="createUser()"/>
 </form>

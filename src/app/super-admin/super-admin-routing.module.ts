@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 
-import { LayoutComponent } from './components/layout/layout.component';
+import { SuperAdminLayoutComponent } from './components/super-admin.layout.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LayoutComponent,
+    component: SuperAdminLayoutComponent,
     children: [
       {
         path: 'users',

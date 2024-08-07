@@ -10,7 +10,7 @@ import { CreateUserCommand } from '../interfaces/create-user-command.interface';
 })
 export class UserService {
   private baseUrl: string = environments.baseUrl;
-  private token: string = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjI4Njk4OTksImV4cCI6MTcyMjg3MzQ5OSwicm9sZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9TVVBFUl9BRE1JTiJdLCJlbWFpbCI6Im1vbnRpc2dhbEBlbWFpbC5jb20ifQ.IOtHsTvww4JV0Y4U3aqtdhCyBKVjcDoFnPZvthDcGCrXoKD3khKMaLDD1pYvgIJaaVE0gRu5ItRutLVjcfGOkTxuMIvYR9dJctmcHlvW4ZBRBxiixF7DAtg_2u37xaHA3iutc3-xE4WeTZ3JjmrRAMfq1VMEty4D2lFtc_POOdy_VPzNrUORK0gCe6aJyxoKTWL2WWwYKobEH78VQHMWe1XbGPefk2Mo932QsguLe2gr4BHaUHK255C1wjSX_W3VFxricTP8JZQoF8Xy7X2Nv-DzhGddzy365hVWJ6SrWz0fPirtpqMQGQJRnn7pqO3cK0bw-WabDwwjJ4klmYHI6Q';
+  private token: string = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjMwNjEwMzEsImV4cCI6MTcyMzA2NDYzMSwicm9sZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9TVVBFUl9BRE1JTiJdLCJlbWFpbCI6Im1vbnRpc2dhbEBlbWFpbC5jb20ifQ.We3-tBHWv50tOawdv8R5vaTpFnFUnYAMiZQYoCCJ9Z_rB96VjzM4Aowoh8bVC8VOKTVICmVn0seQiO2AOFP-zdFswtphpgpiO9L1Dn2ToxG7rvSGSWT_RKLUBY12fl-O8U2eLHCfNtjjxO0zc2hObEdvL1i8o8NwqnLqS6nkB1HvVs6xbg0dYcxYC3XRUWZxE5oV97Zq5T4COCDvurjqQOs6qo-G4lAr8-3pi2WPjtp7sjnTq0pT1J66DXDX2iLSvk89qYGEhsj2crbvQrvD4Z3XPmjTqbGP6CHuU4WF_wPiRvBUFanJOoKfuVCRQwSkYkbGL01rEMARTEKR17pK_g';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -20,17 +20,13 @@ export class UserService {
     });
   }
 
-  createUser(command: CreateUserCommand): Observable<User | object[]> {
-    return this.httpClient.post<User | object[]>(`${this.baseUrl}/super-admin/users`, command, {
+  createUser(command: CreateUserCommand): Observable<any> {
+    return this.httpClient.post<any>(`${this.baseUrl}/super-admin/users`, command, {
       headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
-    }).pipe(
-      catchError((error) => {
-        return of(error.error);
-      }),
-    );
+    });
   }
 
-  deleteUser(id: string): Observable<any> {
+  deleteUser(id: string): Observable<boolean> {
     return this.httpClient.delete<boolean>(`${this.baseUrl}/super-admin/users/${id}`, {
       headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
     }).pipe(

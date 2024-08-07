@@ -1,3 +1,59 @@
-<div class="w-full h-full p-2 flex flex-wrap gap-3 justify-content-between">
-  <app-user-card *ngFor="let user of users" [user]="user" (onDeleteButtonClicked)="deleteUser($event)"></app-user-card>
+<div class="grid">
+  <div class="col-12">
+    <div class="card">
+      <h5>DataView</h5>
+      <p-dataView #dv [value]="users" [paginator]="true" [rows]="12" filterBy="userName" [sortField]="sortField"
+                  [sortOrder]="sortOrder" layout="grid">
+        <ng-template pTemplate="header">
+          <div class="flex flex-column md:flex-row md:justify-content-between gap-2">
+            <p-dropdown [options]="sortOptions" placeholder="Sort By Name"
+                        (onChange)="onSortChange($event)"></p-dropdown>
+            <span class="p-input-icon-left">
+              <i class="pi pi-search"></i>
+              <input type="search" pInputText placeholder="Search by Name" (input)="onFilter(dv, $event)">
+            </span>
+            <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+          </div>
+        </ng-template>
+
+        <ng-template let-users pTemplate="listItem">
+          <div class="col-12" *ngFor="let user of users">
+            <div class="flex flex-column md:flex-row align-items-center p-3 w-full">
+              <div class="flex-1 flex flex-column align-items-center text-center md:text-left">
+                <div class="font-bold text-2xl">{{ user.userName }}</div>
+                <div class="mb-2">{{ user.email }}</div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template let-users pTemplate="gridItem">
+          <div class="grid grid-nogutter">
+            <div class="col-12 md:col-3" *ngFor="let user of users">
+              <div class="card m-3 border-1 surface-border">
+                <div class="flex flex-column justify-content-center mb-3">
+                  <div class="text-2xl font-bold">{{ user.userName }}</div>
+                  <div>{{ user.email }}</div>
+                </div>
+                <div class="flex align-items-center mb-3">
+                  <p-chip label="{{ user.rol | role }}" icon="{{ PrimeIcons.ID_CARD }}"/>
+                  <p-chip
+                    class="ml-2"
+                    [styleClass]="user.verified ?  'text-green-800 bg-green-100' : 'text-red-800 bg-red-100'"
+                    [label]="(user.verified ?  '' : 'Not ') + 'Verified'"
+                    [icon]="PrimeIcons.VERIFIED"
+                  />
+                </div>
+                <p-divider></p-divider>
+                <div class="flex align-items-center justify-content-end">
+                  <p-button pTooltip="More Info" tooltipPosition="top" class="mr-2" [icon]="PrimeIcons.CLIPBOARD"></p-button>
+                  <p-button (click)="deleteUser(user.id)" pTooltip="Delete" tooltipPosition="top" severity="secondary" [icon]="PrimeIcons.TRASH"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-dataView>
+    </div>
+  </div>
 </div>

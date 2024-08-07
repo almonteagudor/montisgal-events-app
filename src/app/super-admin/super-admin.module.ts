@@ -1,17 +1,28 @@
 import { NgModule } from '@angular/core';
 
-import { PrimeNGModule } from '../prime-ng/prime-ng.module';
+import { CommonModule } from '@angular/common';
+import { SuperAdminConfigModule } from './config/super-admin.config.module';
 import { SuperAdminRoutingModule } from './super-admin-routing.module';
 
-import { LayoutComponent } from './components/layout/layout.component';
-
+import { SuperAdminFooterComponent } from './components/super-admin.footer.component';
+import { SuperAdminLayoutComponent } from './components/super-admin.layout.component';
+import { SuperAdminMenuComponent } from './components/super-admin.menu.component';
+import { SuperAdminMenuitemComponent } from './components/super-admin.menuitem.component';
+import { SuperAdminSidebarComponent } from './components/super-admin.sidebar.component';
+import { SuperAdminTopbarComponent } from './components/super-admin.topbar.component';
 
 @NgModule({
   declarations: [
-    LayoutComponent,
+    SuperAdminFooterComponent,
+    SuperAdminLayoutComponent,
+    SuperAdminMenuComponent,
+    SuperAdminMenuitemComponent,
+    SuperAdminSidebarComponent,
+    SuperAdminTopbarComponent,
   ],
   imports: [
-    PrimeNGModule,
+    CommonModule,
+    SuperAdminConfigModule,
     SuperAdminRoutingModule,
   ],
 })
