@@ -4,10 +4,10 @@ import { PrimeIcons } from 'primeng/api';
 
 @Component({
   selector: 'app-user-card',
-  templateUrl: './user-card.component.html',
+  templateUrl: './dog-card.component.html',
   styles: ``,
 })
-export class UserCardComponent implements OnInit {
+export class DogCardComponent implements OnInit {
   @Input()
   public user!: User;
 
@@ -17,7 +17,7 @@ export class UserCardComponent implements OnInit {
   protected readonly PrimeIcons = PrimeIcons;
 
   ngOnInit(): void {
-    if (!this.user) throw Error('User property is required in UserCardComponent');
+    if (!this.user) throw Error('User property is required in DogCardComponent');
   }
 
   deleteButtonClicked(userId: string) {

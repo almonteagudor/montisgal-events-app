@@ -7,7 +7,7 @@ import { Error404PageComponent } from './shared/pages/error404-page/error404-pag
 const routes: Routes = [
   {
     path: 'super-admin',
-    loadChildren: () => import('./super-admin/super-admin.module').then(m => m.SuperAdminModule),
+    loadChildren: () => import('./super-admin/layout/super-admin.module').then(m => m.SuperAdminModule),
   },
   {
     path: 'admin',

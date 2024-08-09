@@ -8,7 +8,7 @@ import { UsersRoutingModule } from './users-routing.module';
 
 import { IndexPageComponent } from './pages/index-page/index-page.component';
 import { NewUserPageComponent } from './pages/new-user-page/new-user-page.component';
-import { UserCardComponent } from './components/user-card/user-card.component';
+import { DogCardComponent } from './components/user-card/dog-card.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 
 
@@ -17,7 +17,7 @@ import { UserFormComponent } from './components/user-form/user-form.component';
     IndexPageComponent,
     NewUserPageComponent,
     RolePipe,
-    UserCardComponent,
+    DogCardComponent,
     UserFormComponent,
   ],
   imports: [

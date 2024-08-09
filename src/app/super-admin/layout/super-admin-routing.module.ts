@@ -11,11 +11,11 @@ const routes: Routes = [
     children: [
       {
         path: 'users',
-        loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
+        loadChildren: () => import('../users/users.module').then(m => m.UsersModule),
       },
       {
         path: 'events',
-        loadChildren: () => import('./events/events.module').then(m => m.EventsModule),
+        loadChildren: () => import('../events/events.module').then(m => m.EventsModule),
       },
       { path: '**', redirectTo: '404' },
     ],
