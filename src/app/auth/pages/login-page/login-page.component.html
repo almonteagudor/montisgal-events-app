@@ -1,0 +1,53 @@
+<div class="grid">
+  <div class="col-12">
+    <div class="card">
+      <h1>Login</h1>
+
+      <p-divider/>
+
+      <form [formGroup]="loginForm" class="flex flex-column gap-2">
+        <div class="flex flex-column gap-2">
+          <p-inputGroup>
+            <p-inputGroupAddon>
+              <i class="{{ PrimeIcons.ENVELOPE }}"></i>
+            </p-inputGroupAddon>
+
+            <input
+              id="email"
+              pInputText
+              placeholder="Email"
+              formControlName="username"
+              [class]="errorLogin ? 'ng-invalid ng-dirty' : ''"
+            />
+          </p-inputGroup>
+        </div>
+
+        <div class="flex flex-column gap-2">
+          <p-inputGroup>
+            <p-inputGroupAddon>
+              <i class="{{ PrimeIcons.LOCK }}"></i>
+            </p-inputGroupAddon>
+
+            <input
+              id="password"
+              pInputText
+              placeholder="Password"
+              formControlName="password"
+              [class]="errorLogin ? 'ng-invalid ng-dirty' : ''"
+            />
+          </p-inputGroup>
+
+          <small id="password-help">
+            {{ errorLogin }}
+          </small>
+        </div>
+
+        <p-divider/>
+
+        <div class="flex justify-content-end">
+          <p-button label="Login" (click)="login()"/>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

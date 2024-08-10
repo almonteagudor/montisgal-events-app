@@ -12,6 +12,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
 import { PaginatorModule } from 'primeng/paginator';
+import { RadioButtonModule } from 'primeng/radiobutton';
 import { RatingModule } from 'primeng/rating';
 import { SidebarModule } from 'primeng/sidebar';
 
@@ -29,6 +30,7 @@ import { SidebarModule } from 'primeng/sidebar';
     MenuModule,
     MenubarModule,
     PaginatorModule,
+    RadioButtonModule,
     RatingModule,
     SidebarModule,
   ],

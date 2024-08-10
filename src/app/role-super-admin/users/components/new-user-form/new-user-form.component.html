@@ -1,0 +1,79 @@
+<form [formGroup]="createUserForm" class="flex flex-column gap-2">
+  <div class="flex flex-column gap-2">
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="{{ PrimeIcons.USER }}"></i>
+      </p-inputGroupAddon>
+
+      <input
+        id="userName"
+        pInputText
+        placeholder="Username"
+        formControlName="userName"
+        [class]="errorUserName ? 'ng-invalid' : ''"
+      />
+    </p-inputGroup>
+
+    <small id="userName-help">
+      {{ errorUserName }}
+    </small>
+  </div>
+
+  <div class="flex flex-column gap-2">
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="{{ PrimeIcons.ENVELOPE }}"></i>
+      </p-inputGroupAddon>
+
+      <input
+        id="email"
+        pInputText
+        placeholder="Email"
+        formControlName="email"
+        [class]="errorEmail ? 'ng-invalid' : ''"
+      />
+    </p-inputGroup>
+
+    <small id="email-help">
+      {{ errorEmail }}
+    </small>
+  </div>
+
+  <div class="flex flex-column gap-2">
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="{{ PrimeIcons.LOCK }}"></i>
+      </p-inputGroupAddon>
+
+      <input
+        id="password"
+        pInputText
+        placeholder="Password"
+        formControlName="password"
+        [class]="errorPassword ? 'ng-invalid' : ''"
+      />
+    </p-inputGroup>
+
+    <small id="password-help">
+      {{ errorPassword }}
+    </small>
+  </div>
+
+  <div class="flex gap-6">
+    <div *ngFor="let rol of Rol | keyvalue" class="field-checkbox">
+      <p-radioButton
+        [inputId]="rol.key"
+        [value]="rol.value"
+        formControlName="rol"/>
+      <label [for]="rol.key" class="ml-2">
+        {{ rol.value | role }}
+      </label>
+    </div>
+  </div>
+
+  <p-divider/>
+
+  <div class="flex justify-content-end">
+    <p-button label="Submit" (click)="createUser()"/>
+  </div>
+</form>
